@@ -1,11 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+@extends('layouts.base')
+@section('title', 'Crea')
+@section('main-content')
+<div class="container w-75">
+    <div class="row">
+        <div class="col-6">
+            
+        </div>
+    </div>
+</div>
+
+@endsection
 <body>
     <h1>
         creazione nuova auto
@@ -28,7 +32,7 @@
         <input type="text" name="marca" id="marca">
 
         <label for="alimentazione">Alimentazione</label>
-        <input type="text" name="alimentazione" id="alimentazione"> 
+        <input type="text" name="alimentazione" id="alimentazione">
 
         <label for="prezzo">Prezzo</label>
         <input type="text" name="prezzo" id="prezzo">

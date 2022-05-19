@@ -16,13 +16,15 @@ class CreateCarsTable extends Migration
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
             $table->string("numero_telaio", 20)->unique();
-            $table->string("model", 20); 
-            $table->tinyInteger("porte"); 
+            $table->string("model", 20);
+            $table->tinyInteger("porte");
             $table->date("data_immatricolazione");
             $table->string("marca",20);
             $table->boolean("is_new")->default(true);
             $table->string("alimentazione");
             $table->float("prezzo", 8,2)->default(0);
+            $table->text("img_auto")->nullable();
+            $table->text("descrizione");
             $table->timestamps();
         });
     }

@@ -1,28 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>
-        Lista auto
-    </h1>
-    <a href="{{route("home")}}">Torna alla Home</a>
-    <a href="{{route("cars.create")}}">Aggiungi Auto</a>
-    @foreach ($cars as $car)
-    <div>
-        <h3>
-            {{$car->marca}}
-        </h3>
-        <h4>
-            {{$car->numero_telaio}}
-        </h4>
-        <a href="{{route("cars.show", $car->id)}}">Dettagli</a>
+@extends('layouts.base')
+
+@section('title', 'Lista')
+@section('main-content')
+<div class="container w-75 mx-auto">
+    <div class="row justify-content-between">
+        <div class="col-2">
+            <a href="{{route("home")}}">
+                <button class="btn btn-sm btn-info">
+                    Torna indietro
+                </button>
+            </a>
+        </div>
+        <div class="col-3">
+            <a href="{{route("cars.create")}}">
+                <button class="btn btn-md btn-warning">
+                    Aggiungi un'auto
+                </button>
+            </a>
+        </div>
     </div>
-       
-    @endforeach
-</body>
-</html>
+    <div class="row justify-content-center text-center">
+        @foreach ($cars as $car)
+        <div class="col-6 p-3">
+            <img src="{{$car->img_auto}} " alt="{{$car->model}} ">
+        </div>
+        <div class="col-6 p-3 text-start">
+            <h1>
+                {{$car->prezzo}}
+            </h1>
+            <a href="{{route('cars.show', $car->id)}} ">
+                read more...
+            </a>
+        </div>
+        @endforeach
+    </div>
+</div>
+
+@endsection
+
+
+
+
+
+
