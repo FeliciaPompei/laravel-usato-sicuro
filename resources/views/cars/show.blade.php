@@ -9,6 +9,11 @@
                 {{session('message')}}
             </div>
         @endif
+        @if (session('msg'))
+            <div class="alert alert-success">
+                {{session('msg')}}
+            </div>
+        @endif
         <div class="col-2">
             <a href="{{route("cars.index")}}">
                 <button class="btn btn-sm btn-info">

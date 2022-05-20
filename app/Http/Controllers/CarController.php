@@ -47,18 +47,14 @@ class CarController extends Controller
             "descrizione"=> "required|min:10",
         ]);
         $data = $request->all();
-        $car = new Car();
-            $car->numero_telaio= $data["numero_telaio"];
-            $car->model=$data["model"];
-            $car->porte=$data["porte"];
-            $car->data_immatricolazione=$data["data_immatricolazione"];
-            $car->marca=$data["marca"];
-            $car->alimentazione=$data["alimentazione"];
-            $car->prezzo=$data["prezzo"];
-            $car->descrizione=$data["descrizione"];
-            $car->save();
 
-            return redirect()->route("cars.show", $car->id);
+        $car = new Car();
+        
+        $car->fill($data);
+
+        $car->save();
+
+        return redirect()->route("cars.show", $car->id)->with("msg", "$car->model $car->marca è stato aggiunto con successo");
     }
 
     /**
@@ -105,14 +101,7 @@ class CarController extends Controller
         ]);
         $data = $request->all();
 
-        $car->numero_telaio = $data["numero_telaio"];
-        $car->model = $data["model"];
-        $car->porte = $data["porte"];
-        $car->data_immatricolazione = $data["data_immatricolazione"];
-        $car->marca = $data["marca"];
-        $car->alimentazione = $data["alimentazione"];
-        $car->prezzo = $data["prezzo"];
-        $car->descrizione = $data["descrizione"];
+        $car->fill($data);
 
         $car->save();
 
@@ -122,11 +111,12 @@ class CarController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  CAR $car
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Car $car)
     {
-        //
+        $car->delete();
+        return redirect()->route('cars.index')->with("message", "$car->model $car->marca è stato cancellato dalla pianeta terra");
     }
 }
