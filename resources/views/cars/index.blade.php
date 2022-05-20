@@ -11,6 +11,7 @@
                 </button>
             </a>
         </div>
+
         <div class="col-3">
             <a href="{{route("cars.create")}}">
                 <button class="btn btn-md btn-warning">
@@ -18,6 +19,7 @@
                 </button>
             </a>
         </div>
+        
     </div>
     <div class="row justify-content-center text-center">
         @foreach ($cars as $car)

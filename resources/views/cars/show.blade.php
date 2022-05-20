@@ -4,10 +4,22 @@
 @section('main-content')
 <div class="container w-75 mx-auto">
     <div class="row justify-content-between">
+        @if (session('message'))
+            <div class="alert alert-warning">
+                {{session('message')}}
+            </div>
+        @endif
         <div class="col-2">
             <a href="{{route("cars.index")}}">
                 <button class="btn btn-sm btn-info">
                     Torna indietro
+                </button>
+            </a>
+        </div>
+        <div class="col-2">
+            <a href="{{route("cars.edit", $car)}}">
+                <button class="btn btn-sm btn-info">
+                    Edit Car
                 </button>
             </a>
         </div>
@@ -18,7 +30,7 @@
         </div>
         <div class="col-6 p-3 text-start">
             <h1>
-                {{$car->prezzo}}
+                PREZZO: {{$car->prezzo}} EUROIiiii
             </h1>
             <p>
                 {{$car->descrizione}}
@@ -40,6 +52,7 @@
                 </button>
             </a>
         </div>
+
     </div>
 </div>
 

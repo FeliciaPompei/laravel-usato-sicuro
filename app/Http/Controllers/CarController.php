@@ -35,16 +35,27 @@ class CarController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
+    {
+        $request->validate([
+            "numero_telaio" => "required|min:8",
+            "model"=> "required",
+            "porte"=> "required",
+            "data_immatricolazione"=> "required",
+            "marca" => "required",
+            "alimentazione" => "required",
+            "prezzo"=> "required|numeric",
+            "descrizione"=> "required|min:10",
+        ]);
         $data = $request->all();
         $car = new Car();
             $car->numero_telaio= $data["numero_telaio"];
-            $car->model=$data["model"]; 
+            $car->model=$data["model"];
             $car->porte=$data["porte"];
             $car->data_immatricolazione=$data["data_immatricolazione"];
             $car->marca=$data["marca"];
             $car->alimentazione=$data["alimentazione"];
             $car->prezzo=$data["prezzo"];
+            $car->descrizione=$data["descrizione"];
             $car->save();
 
             return redirect()->route("cars.show", $car->id);
@@ -65,24 +76,47 @@ class CarController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  Car $car
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Car $car)
     {
-        //
+        return view('cars.edit', compact('car'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Car $car
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Car $car)
     {
-        //
+        $request->validate([
+            "numero_telaio" => "required|min:8",
+            "model"=> "required",
+            "porte"=> "required",
+            "data_immatricolazione"=> "required",
+            "marca" => "required",
+            "alimentazione" => "required",
+            "prezzo"=> "required|numeric",
+            "descrizione"=> "required|min:10",
+        ]);
+        $data = $request->all();
+
+        $car->numero_telaio = $data["numero_telaio"];
+        $car->model = $data["model"];
+        $car->porte = $data["porte"];
+        $car->data_immatricolazione = $data["data_immatricolazione"];
+        $car->marca = $data["marca"];
+        $car->alimentazione = $data["alimentazione"];
+        $car->prezzo = $data["prezzo"];
+        $car->descrizione = $data["descrizione"];
+
+        $car->save();
+
+        return redirect()->route("cars.show", compact('car'))->with("message", "$car->model $car->marca è stato modificato con successo");
     }
 
     /**
