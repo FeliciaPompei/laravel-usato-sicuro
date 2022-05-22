@@ -1,1 +1,47 @@
 @import '~bootstrap/scss/bootstrap';
+
+.my-header-bg-color{
+    background-color:#212529;
+    .my-img-size{
+        width: 10%;
+    }
+}
+.my-img-wrapper{
+    width:100%;
+
+    .my-button-position{
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        a{
+            font-size: 1.5rem;
+        }
+        a:hover{
+            font-size: 2rem;
+        }
+    }
+}
+
+.my-btn{
+    a{
+        text-decoration: none;
+        color:rgb(207, 207, 207);
+        transition: background-color 3s, color 3s;
+        padding:0.5rem;
+        text-transform: uppercase;
+    }
+    a:hover{
+        color:black;
+        background-color:rgb(215, 215, 215);
+    }
+}
+
+
+
+
+footer{
+    background-color: #070707;
+    color:white;
+}
+

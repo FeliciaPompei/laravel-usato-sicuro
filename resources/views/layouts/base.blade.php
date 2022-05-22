@@ -8,7 +8,7 @@
         <title> Auto Usato | @yield('title')</title>
     </head>
     <body>
-        @include('partials.header')
+        @yield('header')
         <main>
             @yield('main-content')
         </main>
