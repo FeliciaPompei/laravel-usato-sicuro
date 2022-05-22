@@ -49,7 +49,7 @@ class CarController extends Controller
         $data = $request->all();
 
         $car = new Car();
-        
+
         $car->fill($data);
 
         $car->save();

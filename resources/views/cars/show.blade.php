@@ -1,8 +1,13 @@
 @extends('layouts.base')
 
 @section('title', 'Lista')
+
+@section('header')
+@include('partials.header')
+@endsection
+
 @section('main-content')
-<div class="container w-75 mx-auto">
+<div class="container w-75 mx-auto p-5">
     <div class="row justify-content-between">
         @if (session('message'))
             <div class="alert alert-warning">
@@ -14,50 +19,61 @@
                 {{session('msg')}}
             </div>
         @endif
-        <div class="col-2">
+        <div class="col-2 my-btn">
             <a href="{{route("cars.index")}}">
-                <button class="btn btn-sm btn-info">
-                    Torna indietro
-                </button>
+                Torna indietro
             </a>
         </div>
-        <div class="col-2">
+        <div class="col-2 my-btn">
             <a href="{{route("cars.edit", $car)}}">
-                <button class="btn btn-sm btn-info">
-                    Edit Car
-                </button>
+                Edit Car
             </a>
         </div>
     </div>
-    <div class="row justify-content-center text-center">
+    <div class="row justify-content-center align-items-center text-center p-3">
         <div class="col-6 p-3">
             <img src="{{$car->img_auto}} " alt="{{$car->model}} ">
         </div>
         <div class="col-6 p-3 text-start">
-            <h1>
-                PREZZO: {{$car->prezzo}} EUROIiiii
-            </h1>
-            <p>
-                {{$car->descrizione}}
-            </p>
+            <table class="table table-dark table-striped">
+                <tbody>
+                    <tr class="text-center">
+                        <th scope="row">Marca</th>
+                        <td>{{$car->marca}}</td>
+                    </tr>
+                    <tr class="text-center">
+                        <th scope="row">Modello</th>
+                        <td>{{$car->model}}</td>
+                    </tr>
+                    <tr class="text-center">
+                        <th scope="row">Porte</th>
+                        <td>{{$car->porte}}</td>
+                    </tr>
+                    <tr class="text-center">
+                        <th scope="row">data di Immatricolazione</th>
+                        <td>{{$car->data_immatricolazione}}</td>
+                    </tr>
+                    <tr class="text-center">
+                        <th scope="row">dscrizione dell'auto</th>
+                        <td>{{$car->descrizione}}</td>
+                    </tr>
+                    <tr class="text-center">
+                        <th scope="row">prezzo</th>
+                        <td>€ {{$car->prezzo}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
-    <div class="row justify-content-between">
-        <div class="col-3">
-            <a href="{{route("cars.show", $car->id-1)}}">
-                <button class="btn btn-md btn-warning">
-                    <-
-                </button>
+    <div class="row justify-content-center">
+        <div class="col-8 my-btn d-flex justify-content-between my-btn-size">
+            <a class="a-hover" href="{{route("cars.show", $car->id-1)}}">
+                &#8656;
+            </a>
+            <a class="a-hover" href="{{route("cars.show", $car->id+1)}}">
+                &#8658;
             </a>
         </div>
-        <div class="col-3">
-            <a href="{{route("cars.show", $car->id+1)}}">
-                <button class="btn btn-md btn-warning">
-                    ->
-                </button>
-            </a>
-        </div>
-
     </div>
 </div>
 

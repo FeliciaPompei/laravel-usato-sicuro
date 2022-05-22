@@ -13,5 +13,6 @@
             @yield('main-content')
         </main>
         @include('partials.footer')
+        @yield('footer-script')
     </body>
 </html>

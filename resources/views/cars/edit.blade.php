@@ -1,7 +1,13 @@
 @extends('layouts.base')
+
 @section('title', 'Crea')
+
+@section('header')
+@include('partials.header')
+@endsection
+
 @section('main-content')
-<div class="container">
+<div class="containe p-5 m-5 mx-auto">
     <div class="row justify-content-center">
         @if ($errors->any())
         <div class="alert alert-danger">
@@ -107,7 +113,7 @@
                         </h5>
                     @enderror
                 </div>
-                <button class="btn btn-primary" type="submit">Send</button>
+                <button class="btn btn-outline-dark" type="submit">Send</button>
             </form>
         </div>
     </div>

@@ -11278,6 +11278,13 @@ textarea.form-control-lg {
   background-color: rgb(215, 215, 215);
 }
 
+.my-btn-size {
+  font-size: 3rem;
+}
+.my-btn-size .a-hover:hover {
+  background-color: transparent;
+}
+
 footer {
   background-color: #070707;
   color: white;

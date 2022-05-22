@@ -41,7 +41,7 @@
                     read more...
                 </a>
                 <div class="col-3">
-                    <form action="{{route('cars.destroy', $car)}}" method="POST">
+                    <form action="{{route('cars.destroy', $car)}}" method="POST" class="car-destroyer" car-name="{{ucfirst($car->marca)}}">
                         @csrf
                         @method('DELETE')
                             <button class="btn btn-md btn-delete btn-danger" type="submit">
@@ -54,6 +54,20 @@
         </div>
     </div>
 </div>
+@endsection
+@section('footer-script')
+<script>
+    const deleteForms = document.querySelectorAll('.car-destroyer');
+    deleteForms.forEach(singleForm => {
+        singleForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            userConfirmation = window.confirm(`Sei sicuro di voler eliminare ${this.getAttribute('car-name')}?` );
+            if (userConfirmation) {
+                this.submit();
+            }
+        })
+    });
+</script>
 @endsection
 
 

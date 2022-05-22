@@ -24,7 +24,7 @@ class CarsTableSeeder extends Seeder
             $car->marca=$faker->randomElement(['renault','citroen','ford','maserati','hummer']);
             $car->alimentazione=$faker->randomElement(['Benzina','Diesel','GPL','Metano','Vino']);
             $car->prezzo=$faker->randomFloat(2,8000, 100000);
-            $car->descrizione=$faker->paragraphs(7, true);
+            $car->descrizione=$faker->paragraphs(4, true);
             $car->img_auto="https://picsum.photos/id/133/200/300";
             $car->save();
 
