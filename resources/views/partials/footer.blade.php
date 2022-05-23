@@ -1,11 +1,11 @@
 <footer class="container-fluid">
     <div class="row p-3">
-        <div class="col-2">
-            <h5>Section</h5>
+        <div class="col-2 p-2">
+            <h5>Links</h5>
             <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                <li class="nav-item mb-2"><a href="{{route('home')}} " class="nav-link p-0 text-muted">Home</a></li>
+                <li class="nav-item mb-2"><a href="{{route('cars.index')}} " class="nav-link p-0 text-muted">Cars</a></li>
+                <li class="nav-item mb-2"><a href="{{route('cars.create')}} " class="nav-link p-0 text-muted">Creation</a></li>
                 <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
                 <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
             </ul>

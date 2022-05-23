@@ -8,6 +8,13 @@
 
 @section('main-content')
 <div class="containe p-5 m-5 mx-auto">
+    <div class="row justify-content-between">
+        <div class="col-2 my-btn">
+            <a href="{{route("cars.index")}}">
+                Torna indietro
+            </a>
+        </div>
+    </div>
     <div class="row justify-content-center">
         @if ($errors->any())
         <div class="alert alert-danger">

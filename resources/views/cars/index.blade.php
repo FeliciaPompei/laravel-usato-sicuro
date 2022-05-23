@@ -28,28 +28,53 @@
             </div>
 
         </div>
-        <div class="row justify-content-center text-center">
+        <div class="row justify-content-center text-center align-items-center p-3">
             @foreach ($cars as $car)
-            <div class="col-6 p-3">
-                <img src="{{$car->img_auto}} " alt="{{$car->model}} ">
-            </div>
-            <div class="col-6 p-3 text-start">
-                <h1>
-                    {{$car->prezzo}}
-                </h1>
-                <a href="{{route('cars.show', $car->id)}} ">
-                    read more...
-                </a>
-                <div class="col-3">
-                    <form action="{{route('cars.destroy', $car)}}" method="POST" class="car-destroyer" car-name="{{ucfirst($car->marca)}}">
-                        @csrf
-                        @method('DELETE')
-                            <button class="btn btn-md btn-delete btn-danger" type="submit">
-                                delete
-                            </button>
-                    </form>
+                <div class="col-5 p-3">
+                    <img class="img-fluid" src="{{$car->img_auto}} " alt="{{$car->model}} ">
                 </div>
-            </div>
+                <div class="col-5 p-3 text-start">
+                    <table class="table table-dark table-striped">
+                        <tbody>
+                            <tr class="text-center">
+                                <th scope="row">Marca</th>
+                                <td>{{$car->marca}}</td>
+                            </tr>
+                            <tr class="text-center">
+                                <th scope="row">Modello</th>
+                                <td>{{$car->model}}</td>
+                            </tr>
+                            <tr class="text-center">
+                                <th scope="row">Porte</th>
+                                <td>{{$car->porte}}</td>
+                            </tr>
+                            <tr class="text-center">
+                                <th scope="row">prezzo</th>
+                                <td>€ {{$car->prezzo}}</td>
+                            </tr>
+                            <tr class="text-center">
+                                <td colspan="2">
+                                    <div class="my-btn">
+                                        <a href="{{route('cars.show', $car->id)}}">
+                                            read more...
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="text-center">
+                                <td colspan="2">
+                                    <form action="{{route('cars.destroy', $car)}}" method="POST" class="car-destroyer" car-name="{{ucfirst($car->marca)}}">
+                                        @csrf
+                                        @method('DELETE')
+                                            <button class="btn btn-md btn-delete btn-outline-danger" type="submit">
+                                                delete
+                                            </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             @endforeach
         </div>
     </div>
