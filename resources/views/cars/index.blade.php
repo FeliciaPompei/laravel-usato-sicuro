@@ -15,7 +15,7 @@
                     </div>
                 @endif
             </div>
-            <div class="col-2 my-btn">
+            <div class="col-3 my-btn">
                 <a href="{{route("home")}}">
                     Torna indietro
                 </a>
@@ -38,7 +38,7 @@
                         <tbody>
                             <tr class="text-center">
                                 <th scope="row">Marca</th>
-                                <td>{{$car->marca}}</td>
+                                <td>{{Str::ucfirst($car->brand->name)}}</td>
                             </tr>
                             <tr class="text-center">
                                 <th scope="row">Modello</th>

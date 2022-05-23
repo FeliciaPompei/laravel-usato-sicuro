@@ -19,7 +19,7 @@
                 {{session('msg')}}
             </div>
         @endif
-        <div class="col-2 my-btn">
+        <div class="col-3 my-btn">
             <a href="{{route("cars.index")}}">
                 Torna indietro
             </a>
@@ -39,7 +39,7 @@
                 <tbody>
                     <tr class="text-center">
                         <th scope="row">Marca</th>
-                        <td>{{$car->marca}}</td>
+                        <td>{{$car->brand->name}}</td>
                     </tr>
                     <tr class="text-center">
                         <th scope="row">Modello</th>
@@ -73,6 +73,17 @@
             <a class="a-hover" href="{{route("cars.show", $car->id+1)}}">
                 &#8658;
             </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            {{-- @foreach ($car->brand->cars as $relativeCarBrand)
+                <a href="{{route('cars.show', $relativeCarBrand)}} ">
+                    <h1>
+                        {{$relativeCarBrand->name}}
+                    </h1>
+                </a>
+            @endforeach --}}
         </div>
     </div>
 </div>

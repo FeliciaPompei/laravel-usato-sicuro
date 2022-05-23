@@ -16,4 +16,7 @@ class Car extends Model
         "prezzo",
         "descrizione"
     ];
+    public function brand(){
+        return $this->belongsTo('App\Brand');
+    }
 }
