@@ -18,5 +18,6 @@ Route::get('/', function () {
 })->name("home");
 
 Route::resource("cars", "CarController");
+Route::resource("brands", "BrandsController");
 
 

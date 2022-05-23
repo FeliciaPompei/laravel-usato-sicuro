@@ -11,7 +11,7 @@ class Car extends Model
         "model",
         "porte",
         "data_immatricolazione",
-        "marca",
+        "brand_id",
         "alimentazione",
         "prezzo",
         "descrizione"

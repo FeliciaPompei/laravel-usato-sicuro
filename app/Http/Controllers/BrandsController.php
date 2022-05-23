@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Brand;
+
 
 class BrandsController extends Controller
 {
@@ -23,7 +25,7 @@ class BrandsController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -34,7 +36,7 @@ class BrandsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**

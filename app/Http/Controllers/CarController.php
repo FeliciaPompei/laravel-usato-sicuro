@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Car;
-
+use App\Brand;
 use Illuminate\Http\Request;
 
 class CarController extends Controller
@@ -25,7 +25,8 @@ class CarController extends Controller
      */
     public function create()
     {
-        return view("cars.create");
+        $brands = Brand::all();
+        return view("cars.create", ['brands' => $brands]);
     }
 
     /**
@@ -41,7 +42,7 @@ class CarController extends Controller
             "model"=> "required",
             "porte"=> "required",
             "data_immatricolazione"=> "required",
-            "marca" => "required",
+            "brand_id" => "required",
             "alimentazione" => "required",
             "prezzo"=> "required|numeric",
             "descrizione"=> "required|min:10",
@@ -66,7 +67,7 @@ class CarController extends Controller
     public function show($id)
     {
         $car= Car::findOrFail($id);
-        return view("cars.show", compact("car"));
+        return view("cars.show", compact("car"), );
     }
 
     /**
@@ -77,7 +78,8 @@ class CarController extends Controller
      */
     public function edit(Car $car)
     {
-        return view('cars.edit', compact('car'));
+        $brands = Brand::all();
+        return view('cars.edit', compact('car'), ['brands' => $brands]);
     }
 
     /**
@@ -94,7 +96,7 @@ class CarController extends Controller
             "model"=> "required",
             "porte"=> "required",
             "data_immatricolazione"=> "required",
-            "marca" => "required",
+            "brand_id" => "required",
             "alimentazione" => "required",
             "prezzo"=> "required|numeric",
             "descrizione"=> "required|min:10",

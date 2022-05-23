@@ -74,7 +74,14 @@
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text">Marca</span>
-                    <input type="text" class="form-control" name="marca">
+                    <select class="form-select" name="brand_id">
+                        @foreach ($brands as $brand)
+                            <option value="{{$brand->id}} ">
+                                {{$brand->name}}
+                            </option>
+                        @endforeach
+                    </select>
+
                 </div>
                 <div class="col-12">
                     @error('marca')

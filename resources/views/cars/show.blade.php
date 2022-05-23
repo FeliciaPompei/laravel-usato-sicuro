@@ -77,13 +77,15 @@
     </div>
     <div class="row">
         <div class="col-12">
-            {{-- @foreach ($car->brand->cars as $relativeCarBrand)
+            @foreach ($car->brand->cars as $relativeCarBrand)
                 <a href="{{route('cars.show', $relativeCarBrand)}} ">
                     <h1>
-                        {{$relativeCarBrand->name}}
+                        {{$relativeCarBrand->model}}
+                        {{$relativeCarBrand->prezzo}} euroiiiiis
                     </h1>
                 </a>
-            @endforeach --}}
+            @endforeach
+
         </div>
     </div>
 </div>
