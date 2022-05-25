@@ -11266,6 +11266,10 @@ textarea.form-control-lg {
   font-size: 2rem;
 }
 
+.my-input-bg-color {
+  background: linear-gradient(to right, black, gray);
+}
+
 .my-btn a {
   text-decoration: none;
   color: rgb(207, 207, 207);
@@ -11295,4 +11299,9 @@ footer {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+
+.color {
+  width: 25px;
+  height: 25px;
 }

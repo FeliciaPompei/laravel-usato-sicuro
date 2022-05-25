@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Car;
 use App\Brand;
+use App\Color;
 use Illuminate\Http\Request;
 
 class CarController extends Controller
@@ -26,7 +27,8 @@ class CarController extends Controller
     public function create()
     {
         $brands = Brand::all();
-        return view("cars.create", ['brands' => $brands]);
+        $colors = Color::all();
+        return view("cars.create", ['brands' => $brands, 'colors' => $colors]);
     }
 
     /**
@@ -45,6 +47,7 @@ class CarController extends Controller
             "brand_id" => "required",
             "alimentazione" => "required",
             "prezzo"=> "required|numeric",
+            "color_id"=> "required",
             "descrizione"=> "required|min:10",
         ]);
         $data = $request->all();
@@ -54,7 +57,7 @@ class CarController extends Controller
         $car->fill($data);
 
         $car->save();
-
+        $car->colors()->attach($data['color_id']);
         return redirect()->route("cars.show", $car->id)->with("msg", "$car->model $car->marca è stato aggiunto con successo");
     }
 
@@ -79,7 +82,8 @@ class CarController extends Controller
     public function edit(Car $car)
     {
         $brands = Brand::all();
-        return view('cars.edit', compact('car'), ['brands' => $brands]);
+        $colors = Color::all();
+        return view('cars.edit', compact('car'), ['brands' => $brands, 'colors' => $colors]);
     }
 
     /**
@@ -99,6 +103,7 @@ class CarController extends Controller
             "brand_id" => "required",
             "alimentazione" => "required",
             "prezzo"=> "required|numeric",
+            "color_id" => "required",
             "descrizione"=> "required|min:10",
         ]);
         $data = $request->all();
@@ -106,6 +111,7 @@ class CarController extends Controller
         $car->fill($data);
 
         $car->save();
+        $car->colors()->sync($data['color_id']);
 
         return redirect()->route("cars.show", compact('car'))->with("message", "$car->model $car->marca è stato modificato con successo");
     }

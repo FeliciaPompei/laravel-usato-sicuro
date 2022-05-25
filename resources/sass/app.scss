@@ -22,6 +22,9 @@
         }
     }
 }
+.my-input-bg-color{
+    background: linear-gradient(to right, black , gray);
+}
 
 .my-btn{
     a{
@@ -53,5 +56,10 @@ footer{
     background-repeat: no-repeat;
     background-size:cover;
     background-position: center;;
+}
+
+.color{
+    width:25px;
+    height:25px;
 }
 

@@ -4,7 +4,7 @@
 @include('partials.header')
 @endsection
 @section('main-content')
-<div class="container mx-auto p-5 m-5">
+<div class="container mx-auto p-5 m-5 my-input-bg-color111">
     <div class="row justify-content-between">
         <div class="col-2 my-btn">
             <a href="{{route("cars.index")}}">
@@ -122,6 +122,13 @@
                             {{ $message }}
                         </h5>
                     @enderror
+                </div>
+                <div class="mb-3 d-flex">
+                    <label for="color">Colore della macchina</label>
+                        @foreach ($colors as $color)
+                            <input type="color" class="form-control form-control-color" id="color" value="{{$color->color}}" title="Seleziona il colore della categoria"  disabled>
+                            <input type="checkbox" name="color_id" value="{{$color->id}}">
+                        @endforeach
                 </div>
                 <button class="btn btn-outline-dark" type="submit">Send</button>
             </form>

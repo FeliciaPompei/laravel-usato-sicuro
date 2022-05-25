@@ -7,7 +7,7 @@
 @endsection
 
 @section('main-content')
-<div class="containe p-5 m-5 mx-auto">
+<div class="containe p-5 m-5 mx-auto my-input-bg-color">
     <div class="row justify-content-between">
         <div class="col-2 my-btn">
             <a href="{{route("cars.index")}}">
@@ -117,6 +117,23 @@
                 <div class="input-group mb-3">
                     <span class="input-group-text">descrizione della macchina</span>
                     <input type="text" class="form-control" name="descrizione" value="{{$car->descrizione}} ">
+                </div>
+                <div class="col-12">
+                    @error('descrizione')
+                        <h5 class="alert alert-danger">
+                            {{ $message }}
+                        </h5>
+                    @enderror
+                </div>
+                <div class="mb-3 d-flex">
+                    <label for="color">Colore della macchina</label>
+                        @foreach ($colors as $color)
+                            <input type="color" class="form-control form-control-color" id="color" value="{{$color->color}}" title="Seleziona il colore della categoria"  disabled>
+                            <input type="checkbox" name="color_id" value="{{$color->id}}"
+                            @if ($car->colors->contains($color))
+                                checked
+                            @endif>
+                        @endforeach
                 </div>
                 <div class="col-12">
                     @error('descrizione')

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Color;
 
 class Car extends Model
 {
@@ -18,5 +19,8 @@ class Car extends Model
     ];
     public function brand(){
         return $this->belongsTo('App\Brand');
+    }
+    public function colors(){
+        return $this->belongsToMany('App\Color');
     }
 }
